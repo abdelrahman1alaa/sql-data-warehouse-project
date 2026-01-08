@@ -132,3 +132,36 @@ select * from silver.erp_loc_a101
 
 -- ************************* 3rd Table in ERP *****************************
 -- erp_px_cat_g1v2
+
+
+select 
+id , 
+cat, 
+subcat, 
+maintenance
+from bronze.erp_px_cat_g1v2
+
+
+
+
+-- Checkink for Unwanted Spaces 
+select * from bronze.erp_px_cat_g1v2
+where cat != trim(cat) or subcat != trim(subcat) or maintenance != trim(maintenance) 
+
+
+
+-- Data Standarzation & Consistency
+SELECT DISTINCT cat
+from bronze.erp_px_cat_g1v2
+order by cat
+
+
+-- Data Standarzation & Consistency
+SELECT DISTINCT subcat
+from bronze.erp_px_cat_g1v2
+order by subcat
+
+-- Data Standarzation & Consistency
+SELECT DISTINCT maintenance
+from bronze.erp_px_cat_g1v2
+order by maintenance
